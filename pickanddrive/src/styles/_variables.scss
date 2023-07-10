@@ -1,0 +1,50 @@
+// COLOR PALETTES
+// COLOR 1
+$color1: #324681;
+$color1_2: #324681d2;
+$color1_3: #324681a3;
+$color1_4: #3246817a;
+$color1_5: #3246814d;
+// COLOR 2
+$color2: #688bf6;
+$color2_2: #688bf6d2;
+$color2_3: #688bf6a3;
+$color2_4: #688bf67a;
+$color2_5: #688bf64d;
+// COLOR 3
+$color3: #f1f1e6;
+$color3_2: #f1f1e6d2;
+$color3_3: #f1f1e6a3;
+$color3_4: #f1f1e67a;
+$color3_5: #f1f1e64d;
+// COLOR 4
+$color4: #f8f9ff;
+$color4_2: #f8f9ffd2;
+$color4_3: #f8f9ffa3;
+$color4_4: #f8f9ff7a;
+$color4_5: #f8f9ff4d;
+// COLOR 5
+$color5: #444655;
+$color5_2: #444655d2;
+$color5_3: #444655a3;
+$color5_4: #4446557a;
+$color5_5: #4446554d;
+
+/* BOOTSTRAP */
+$primary: $color1;
+$secondary: $color2;
+$success: $color3;
+$info: $color4;
+$font-family-sans-serif: "Poppins";
+$navbar-light-color: $color1;
+$navbar-light-hover-color: $color2;
+$navbar-light-active-color: $color2;
+$nav-link-font-weight: 600;
+$border-radius: 5px;
+$form-feedback-valid-color: $color1;
+$nav-tabs-link-active-color: $color2;
+
+/* SWEETALERT */
+$swal2-confirm-button-background-color: $color1;
+$swal2-cancel-button-background-color: $color2;
+$swal2-success: $color1;
