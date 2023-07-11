@@ -1,26 +1,47 @@
 {
-  "name": "pickanddrive",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
-    "@vitejs/plugin-react": "^4.0.1",
-    "eslint": "^8.44.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.1",
-    "vite": "^4.4.0"
-  }
+    "name": "pickanddrive",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.9.5",
+        "@sweetalert2/themes": "^5.0.15",
+        "axios": "^1.4.0",
+        "bootstrap": "^5.3.0",
+        "encrypt-storage": "^2.12.16",
+        "formik": "^2.4.2",
+        "js-file-download": "^0.4.12",
+        "localforage": "^1.10.0",
+        "match-sorter": "^6.3.1",
+        "moment": "^2.29.4",
+        "react": "^18.2.0",
+        "react-bootstrap": "^2.8.0",
+        "react-data-table-component": "^7.5.3",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.10.1",
+        "react-input-mask-next": "^3.0.0-alpha.12",
+        "react-redux": "^8.1.1",
+        "react-router-dom": "^6.14.0",
+        "sort-by": "^1.2.0",
+        "sweetalert2": "^11.7.12",
+        "swiper": "^9.4.1",
+        "yup": "^1.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.14",
+        "@types/react-dom": "^18.2.6",
+        "@vitejs/plugin-react": "^4.0.1",
+        "eslint": "^8.44.0",
+        "eslint-plugin-react": "^7.32.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.1",
+        "sass": "^1.63.6",
+        "vite": "^4.4.0"
+    }
 }
