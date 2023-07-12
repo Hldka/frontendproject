@@ -1,0 +1,40 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+$breakpoint: 992px;
+$breakpointsm: 576px;
+
+.bottom-menu {
+    flex: 1;
+    padding: 1rem;
+
+    .navbar {
+        padding: 0 0.5rem 0.5rem 0.5rem;
+    }
+
+    @media (max-width: $breakpoint) {
+        padding: 0;
+
+        .container {
+            justify-content: flex-end;
+        }
+
+        .navbar-collapse {
+            background-color: v.$color4;
+            padding: 1rem;
+            margin-top: 1rem;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+    }
+
+    @media (max-width: $breakpointsm) {
+        .navbar-toggler {
+            right: 0;
+        }
+    }
+
+    .navbar-toggler {
+        background-color: v.$color4;
+    }
+}
