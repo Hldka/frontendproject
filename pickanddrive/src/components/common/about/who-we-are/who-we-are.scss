@@ -1,0 +1,99 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+$breakpoint: 992px;
+
+.who-we-are {
+    p {
+        text-align: justify;
+    }
+
+    .row {
+        gap: 10rem 0;
+    }
+
+    @media (max-width: $breakpoint) {
+        .row {
+            gap: 5rem 0;
+        }
+    }
+
+    .img-col {
+        position: relative;
+        display: flex;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            object-position: top center;
+            height: auto;
+            box-shadow: 0 0 10px v.$color2;
+            border-radius: 5px;
+            max-height: 500px;
+        }
+
+        img.right {
+            margin-left: auto;
+        }
+
+        .border-left {
+            position: absolute;
+            width: 20px;
+            left: 0;
+            top: 0;
+            bottom: 50%;
+            background-color: v.$color4;
+            transform: translate(-50%, -10px);
+            box-shadow: -10px 0px 24px -7px v.$color1;
+        }
+
+        .border-top {
+            position: absolute;
+            height: 20px;
+            left: 0;
+            top: 0;
+            right: 50%;
+            background-color: v.$color4;
+            transform: translate(-10px, -50%);
+            box-shadow: 0px -10px 24px -7px v.$color1;
+        }
+
+        .border-right {
+            position: absolute;
+            width: 20px;
+            right: 0;
+            top: 50%;
+            bottom: 0;
+            background-color: v.$color4;
+            transform: translate(50%, 10px);
+            box-shadow: 10px 0px 24px -7px v.$color1;
+        }
+        .border-bottom {
+            position: absolute;
+            height: 20px;
+            left: 50%;
+            bottom: 0;
+            right: 0;
+            background-color: v.$color4;
+            transform: translate(10px, 50%);
+            box-shadow: 0px 10px 24px -7px v.$color1;
+        }
+    }
+
+    .who-we-are-content {
+        @include m.flexbox(column, space-between, center, 1rem);
+
+        .who-we-are-info {
+            > p {
+                margin-bottom: 5rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+                text-transform: capitalize;
+                color: v.$color2;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}

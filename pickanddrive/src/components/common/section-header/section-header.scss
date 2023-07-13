@@ -1,0 +1,21 @@
+@use "../../../styles/variables" as v;
+
+.section-header {
+    padding: 1rem;
+    text-align: center;
+
+    h2 {
+        font-weight: 400;
+        font-size: 3rem;
+        color: v.$color2;
+        text-transform: uppercase;
+
+        span {
+            font-weight: 800;
+        }
+    }
+
+    p {
+        color: v.$color1;
+    }
+}

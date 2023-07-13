@@ -1,5 +1,5 @@
-const Spacer = () => {
-    return <div>Spacer</div>;
+const Spacer = ({ height = 100 }) => {
+    return <div style={{ height: height }}></div>;
 };
 
 export default Spacer;
