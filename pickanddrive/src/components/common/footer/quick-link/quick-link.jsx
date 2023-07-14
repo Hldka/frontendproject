@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import "./quick-link.scss";
 
 const QuickLink = (props) => {
-    // direct, icon, text, pathname
-
     return (
         <li className="quick-link">
             <Link

@@ -1,4 +1,3 @@
-
 import { Col, Container, Row } from "react-bootstrap";
 import { OfferItem, SectionHeader } from "../../../";
 import { constants } from "../../../../constants";
@@ -9,6 +8,9 @@ import {
     GiCarWheel,
 } from "react-icons/gi";
 import { MdFamilyRestroom, MdOutlineWorkspacePremium } from "react-icons/md";
+import "./best-offers.scss";
+
+
 const { offers } = constants;
 
 const offerIcons = [

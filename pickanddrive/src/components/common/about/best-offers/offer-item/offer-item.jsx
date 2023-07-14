@@ -1,4 +1,5 @@
 import "./offer-item.scss";
+
 const OfferItem = (props) => {
     // title, desc, direction, icon
     return (

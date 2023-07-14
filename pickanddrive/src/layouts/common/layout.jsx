@@ -5,7 +5,8 @@ const CommonLayout = () => {
     return (
         <>
             <Header />
-            <Outlet /> {/* <Outlet /> is a placeholder for child routes to render */}
+            <Outlet />{" "}
+            {/* <Outlet /> is a placeholder for child routes to render */}
             <Footer />
         </>
     );

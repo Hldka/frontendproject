@@ -10,7 +10,7 @@ import {
 const AboutPage = () => {
     return (
         <>
-            <PageHeader />
+            <PageHeader title="About Us" />
             <Spacer />
             <WhoWeAre />
             <Spacer />

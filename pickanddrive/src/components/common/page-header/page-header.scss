@@ -13,13 +13,13 @@ $breakpointxs: 400px;
     @include m.flexbox(row, center, flex-end);
 
     // tozlu filigran
-    // &:after {
-    //     content: "";
-    //     position: absolute;
-    //     inset: 0;
-    //     background-color: v.$color3;
-    //     opacity: 0.4;
-    // }
+    &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: v.$color3;
+        opacity: 0.1;
+    }
 
     h1 {
         color: v.$color1;

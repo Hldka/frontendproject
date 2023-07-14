@@ -1,0 +1,12 @@
+@use "../../../../../styles/variables" as v;
+
+.team-member {
+    border-radius: 5px;
+    box-shadow: 0 0 10px v.$color1-4;
+    color: v.$color1;
+
+    .card-text {
+        font-size: 0.85rem;
+        color: v.$color1-2;
+    }
+}

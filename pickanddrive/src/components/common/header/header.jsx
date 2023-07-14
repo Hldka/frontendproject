@@ -1,4 +1,3 @@
-
 import { Container } from "react-bootstrap";
 import { TopMenu, BottomMenu } from "../../";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ const Header = () => {
     return (
         <Container className="fixed-top p-0">
             <div className="header">
-            <Link to="/" title="GO TO HOMEPAGE">
+                <Link to="/" title="GO TO HOMEPAGE">
                     <div className="logo">
                         <img src="/logo.png" alt="Pick & Drive Logo" />
                         <div className="logo_text">
@@ -18,8 +17,8 @@ const Header = () => {
                     </div>
                 </Link>
                 <div className="menus">
-                    <TopMenu/>
-                    <BottomMenu/>
+                    <TopMenu />
+                    <BottomMenu />
                 </div>
             </div>
         </Container>
