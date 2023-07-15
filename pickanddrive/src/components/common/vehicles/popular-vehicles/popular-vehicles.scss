@@ -1,0 +1,11 @@
+@use "../../../../styles/variables" as v;
+
+.popular-vehicles {
+    [class^="col-"]:nth-child(2n) {
+        .vehicle-card {
+            .image {
+                background-image: linear-gradient(-65deg, v.$color4, v.$color1);
+            }
+        }
+    }
+}

@@ -1,5 +1,14 @@
+import { PageHeader, Spacer, Vehicles } from "../../../components";
+
 const VehiclesPage = () => {
-    return <div>VehiclesPage</div>;
+    return (
+        <>
+            <PageHeader title="Our Vehicles" />
+            <Spacer />
+            <Vehicles />
+            <Spacer />
+        </>
+    );
 };
 
 export default VehiclesPage;

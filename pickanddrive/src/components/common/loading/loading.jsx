@@ -1,7 +1,17 @@
-const Loading = () => {
-  return (
-    <div>Loading</div>
-  )
-}
+import { Spinner } from "react-bootstrap";
+import "./loading.scss";
 
-export default Loading
+const Loading = (props) => {
+    const styles = {
+        width: props.width,
+        height: props.height,
+    };
+
+    return (
+        <div className="loading" style={styles}>
+            <Spinner animation="border" />
+        </div>
+    );
+};
+
+export default Loading;

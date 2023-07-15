@@ -1,0 +1,17 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    @include m.flexbox(row, center, center);
+
+    .spinner-border {
+        color: v.$color2;
+        width: 5rem;
+        height: 5rem;
+    }
+}

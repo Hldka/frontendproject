@@ -50,12 +50,3 @@ const WhatWeDo = () => {
 };
 
 export default WhatWeDo;
-
-
-<div className="what-we-do">
-    <Row>
-        <Col>
-            
-        </Col>
-    </Row>
-</div>

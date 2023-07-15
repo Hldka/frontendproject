@@ -4,7 +4,6 @@ import { constants } from "../../../constants";
 import "./slider.scss";
 
 const { slider } = constants;
-console.log(slider);
 
 const Slider = () => {
     return (

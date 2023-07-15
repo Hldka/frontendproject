@@ -35,7 +35,6 @@ const navigationLinks = [
 
 const BottomMenu = () => {
     const { pathname } = useLocation();
-    console.log(pathname);
 
     return (
         <div className="bottom-menu">

@@ -1,6 +1,8 @@
-import { Container, Row } from "react-bootstrap";
-import { SectionHeader, Spacer, VehicleCard } from "../../../";
+import { Col, Container, Row } from "react-bootstrap";
+import { Loading, SectionHeader, Spacer, VehicleCard } from "../../../";
 import { useEffect, useState } from "react";
+import { services } from "../../../../services";
+import "./popular-vehicles.scss";
 
 const PopularVehicles = () => {
     const [loading, setLoading] = useState(true);
@@ -8,7 +10,9 @@ const PopularVehicles = () => {
 
     const loadData = async () => {
         try {
-            // const vehicleData = await axios.
+            const vehicleData = await services.vehicle.getVehiclesByPage();
+            const { content } = vehicleData;
+            setVehicles(content);
         } catch (error) {
             console.log(error);
         } finally {
@@ -30,7 +34,16 @@ const PopularVehicles = () => {
             <Spacer />
             <Container>
                 <Row className="gy-5">
-                    <VehicleCard />
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        vehicles &&
+                        vehicles.map((vehicle, index) => (
+                            <Col md={6} lg={4} key={vehicle?.id || index}>
+                                <VehicleCard {...vehicle} />
+                            </Col>
+                        ))
+                    )}
                 </Row>
             </Container>
         </div>
