@@ -1,0 +1,44 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+$breakpoint: 992px;
+$breakpointsm: 600px;
+
+.best-offers {
+    .offers {
+        position: relative;
+        padding: 6rem 0;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            @include m.bg-image("/img/vertical_car.png");
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        [class^="col-"] {
+            @include m.flexbox(column, space-between, center, 2rem);
+        }
+
+        [class^="col-"]:nth-child(2) {
+            justify-content: center;
+
+            @media (max-width: $breakpoint) {
+                transform: rotate(90deg);
+
+                img {
+                    height: 100%;
+                    mix-blend-mode: multiply;
+                }
+            }
+
+            @media (max-width: $breakpointsm) {
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+}

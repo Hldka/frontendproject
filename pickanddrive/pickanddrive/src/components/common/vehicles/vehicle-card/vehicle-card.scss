@@ -1,0 +1,71 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+$breakpointmd: 767px;
+
+.vehicle-card {
+    height: 100% !important;
+    border: 1px solid v.$color4;
+    text-align: center;
+    color: v.$color1;
+    @include m.flexbox(column, space-between, center);
+    border-radius: 5px;
+    box-shadow: 0 0 10px v.$color1-5;
+    margin: 0 auto;
+
+    .image {
+        background-image: linear-gradient(65deg, v.$color5, v.$color3);
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px 5px 0 0;
+        min-height: 275px;
+        max-height: 275px;
+        @include m.flexbox(row, center, center);
+
+        img {
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+        }
+    }
+
+    @media (max-width: $breakpointmd) {
+        max-width: 336px;
+        img {
+            min-height: 200px;
+            max-height: 200px;
+        }
+    }
+
+    h4 {
+        font-weight: 400;
+        padding: 1rem;
+        color: v.$color2;
+    }
+
+    button {
+        width: 100%;
+        color: v.$color4;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .details {
+        @include m.flexbox();
+        flex-wrap: wrap;
+
+        > div {
+            @include m.flexbox(row, center, center, 0.5rem);
+            padding: 0.7rem;
+            flex: 1 0 50%;
+            border-top: 1px solid v.$color3;
+            white-space: nowrap;
+
+            svg {
+                color: v.$color2;
+            }
+
+            &:nth-child(odd) {
+                border-right: 1px solid v.$color3;
+            }
+        }
+    }
+}

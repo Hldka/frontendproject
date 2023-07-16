@@ -1,0 +1,119 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+$breakpoint: 992px;
+$breakpointsm: 576px;
+
+.auth-layout {
+    .banner {
+        @include m.bg-image("/img/login_bg.jpg");
+        background-attachment: fixed;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 50% 100%;
+        min-height: 100vh;
+        @include m.flexbox(row, center, center);
+        position: relative;
+
+        &::after {
+            @include m.watermark(v.$color2, 0.2);
+        }
+
+        img {
+            position: fixed;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .toolbar {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            color: v.$color2;
+            z-index: 1;
+
+            @include m.flexbox($gap: 1rem);
+
+            @media (max-width: $breakpoint) {
+                top: 50px;
+                right: 1rem;
+                transform: translateY(-50%);
+            }
+
+            svg {
+                font-size: 3rem;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: $breakpoint) {
+            display: none;
+        }
+    }
+
+    .forms {
+        @include m.flexbox(row, center, center);
+        padding: 4rem;
+
+        @media (max-width: $breakpointsm) {
+            padding: 4rem 2rem;
+        }
+    }
+
+    .logo {
+        display: none;
+        border-radius: 0 0 0 5px;
+        margin-top: 3rem;
+        height: 100%;
+
+        img {
+            height: 180px;
+            margin: 0;
+        }
+
+        .logo_text {
+            text-align: center;
+            font-size: 5rem;
+            line-height: 5.3rem;
+
+            span {
+                font-size: 5.5rem;
+            }
+
+            p {
+                line-height: 1rem;
+                font-size: 0.8rem;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: $breakpoint) {
+            @include m.flexbox(row, center, center);
+        }
+
+        @media (max-width: $breakpointsm) {
+            img {
+                height: 90px;
+                margin: 0;
+            }
+
+            .logo_text {
+                text-align: center;
+                font-size: 2.8rem;
+                line-height: 2.3rem;
+
+                span {
+                    font-size: 3.4rem;
+                }
+
+                P {
+                    line-height: 0.8rem;
+                    font-size: 0.5rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

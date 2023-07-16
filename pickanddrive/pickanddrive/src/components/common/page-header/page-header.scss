@@ -1,0 +1,42 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+$breakpointmd: 600px;
+$breakpointsm: 500px;
+$breakpointxs: 400px;
+
+.page-header {
+    @include m.bg-image("/img/header_bg.jpg", $position: center bottom);
+    height: 300px;
+    padding-bottom: 2rem;
+    position: relative;
+    @include m.flexbox(row, center, flex-end);
+
+    // tozlu filigran
+    &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: v.$color3;
+        opacity: 0.1;
+    }
+
+    h1 {
+        color: v.$color1;
+        z-index: 2;
+        font-size: 4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-shadow: 0 0 3px v.$color5;
+
+        @media (max-width: $breakpointmd) {
+            font-size: 3rem;
+        }
+        @media (max-width: $breakpointsm) {
+            font-size: 2.5rem;
+        }
+        @media (max-width: $breakpointxs) {
+            font-size: 2rem;
+        }
+    }
+}

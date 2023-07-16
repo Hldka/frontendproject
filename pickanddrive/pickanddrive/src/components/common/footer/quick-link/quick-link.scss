@@ -1,0 +1,14 @@
+@use "../../../../styles/variables" as v;
+
+.quick-link {
+    a {
+        &:hover {
+            color: v.$color2;
+        }
+
+        &.active {
+            color: v.$color2;
+            font-weight: 500;
+        }
+    }
+}

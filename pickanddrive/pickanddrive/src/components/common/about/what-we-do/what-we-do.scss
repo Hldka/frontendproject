@@ -1,0 +1,53 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+.what-we-do {
+    background-color: v.$color1;
+    color: v.$color4;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    .props {
+        [class^="col-"] {
+            @include m.flexbox(row, flex-start, center, 1rem);
+            padding: 2rem;
+            border-bottom: 1px dotted v.$color4-5;
+            border-right: none;
+
+            @media (min-width: 576px) {
+                &:nth-child(odd) {
+                    border-right: 1px dotted v.$color4-5;
+                }
+            }
+
+            @media (min-width: 992px) {
+                border-right: 1px dotted v.$color4-5;
+                &:nth-child(3n) {
+                    border-right: none;
+                }
+            }
+
+            svg {
+                font-size: 3rem;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    > [class="row"] {
+        > [class^="col-"] {
+            &:last-child {
+                @include m.flexbox(column, space-between);
+                padding: 3rem;
+            }
+        }
+    }
+}

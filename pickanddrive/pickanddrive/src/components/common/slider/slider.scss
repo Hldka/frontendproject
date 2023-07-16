@@ -1,0 +1,62 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+$breakpoint: 576px;
+
+.slider {
+    .swiper-wrapper {
+        .swiper-slide {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-color: v.$color1-5;
+            }
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100vh;
+            }
+
+            .content {
+                color: v.$color4;
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%);
+                text-align: center;
+                z-index: 5;
+                text-shadow: 0 0 30px v.$color1;
+
+                h2 {
+                    font-size: 3rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: v.$color3;
+    }
+
+    @media (max-width: $breakpoint) {
+        .swiper-wrapper {
+            .swiper-slide {
+                .content {
+                    h2 {
+                        font-size: 1.5rem;
+                    }
+
+                    p {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}

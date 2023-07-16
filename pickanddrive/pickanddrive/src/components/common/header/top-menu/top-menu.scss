@@ -1,0 +1,47 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+$breakpoint: 992px;
+$breakpointsm: 576px;
+
+.top-menu {
+    @include m.flexbox(row, space-between, center, 1rem);
+    border-bottom: 1px solid v.$color1-5;
+    flex: 1;
+    padding: 1rem;
+
+    @media (max-width: $breakpoint) {
+        border-bottom: 0;
+    }
+
+    @media (max-width: $breakpointsm) {
+        display: none;
+    }
+
+    ul {
+        @include m.reset-list();
+
+        a {
+            @include m.flexbox($align-items: center, $gap: 0.5rem);
+            text-decoration: none;
+            color: v.$color1;
+
+            &:hover {
+                color: v.$color2;
+            }
+        }
+
+        &.contact-bar {
+            @include m.flexbox($gap: 1rem);
+            font-size: 0.8rem;
+
+            @media (max-width: $breakpoint) {
+                flex: 1;
+            }
+        }
+
+        &.social-bar {
+            @include m.flexbox(row, flex-end, center, 1rem);
+        }
+    }
+}
