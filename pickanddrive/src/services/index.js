@@ -6,6 +6,8 @@ import { deleteUser, downloadUserReports, getUser, getUserAdmin, getUsersByPage,
 
 import { addVehicle, deleteVehicle, deleteVehicleImage, downloadVehicleReports, getVehicleById, getVehicles, getVehiclesByPage, updateVehicle, uploadVehicleImage } from "./vehicle/vehicle-service";
 
+import { encryptedLocalStorage } from "./encrypt-storage/encrypt-storage";
+
 export const services = {
     contact: {
         // COMMON ENDPOINTS
@@ -55,5 +57,6 @@ export const services = {
         downloadVehicleReports,
         updateVehicle,
         uploadVehicleImage,
-    }
+    },
+    encryptedLocalStorage
 }
