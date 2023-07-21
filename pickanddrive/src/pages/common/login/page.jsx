@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginFailure, loginSuccess } from "../../../store";
 import { useFormik } from "formik";
 import { services } from "../../../services/";
 import { utils } from "../../../utils";
+import { CustomForm, PasswordInput } from "../../../components";
 
 const LoginPage = () => {
     const [loading, setLoading] = useState(false);
@@ -42,9 +43,21 @@ const LoginPage = () => {
     });
 
     return (
-        <Form noValidate onSubmit={formik.handleSubmit}>
-            {/* CUSTOM FORM */}
-            {/* PASSWORD INPUT */}
+        <Form onSubmit={formik.handleSubmit}>
+            <CustomForm
+                formik={formik}
+                name="email"
+                label="Email Address"
+                placeholder="johndoe@example.com"
+                type="email"
+            />
+            <PasswordInput
+                formik={formik}
+                name="password"
+                label="Password"
+                placeholder="Enter your password..."
+            />
+
             <Button>LOGIN</Button>
             <p>OR</p>
             <Button>REGISTER</Button>
