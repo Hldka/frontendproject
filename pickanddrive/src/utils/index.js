@@ -2,13 +2,13 @@
 import { validCheck, swalQuestion, swalToast } from "./functions/functions";
 
 // INITIAL VALUES
-import { loginFormInitialValues } from "./initial-values/initial-values";
+import { loginFormInitialValues, registerFormInitialValues } from "./initial-values/initial-values";
 
 // TABLES
 
 
 // VALIDATIONS
-import { loginFormValidationSchema } from "./validations/validations";
+import { loginFormValidationSchema, registerFormValidationSchema } from "./validations/validations";
 
 export const utils = {
     functions: {
@@ -17,10 +17,12 @@ export const utils = {
         swalToast
     },
     initialValues: {
-        loginFormInitialValues
+        loginFormInitialValues,
+        registerFormInitialValues
     },
     tables: {},
     validations: {
-        loginFormValidationSchema
+        loginFormValidationSchema,
+        registerFormValidationSchema
     },
 };

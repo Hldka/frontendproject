@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import { constants } from "../../constants";
 import { GiCancel, GiHomeGarage } from "react-icons/gi";
@@ -11,7 +11,8 @@ const AuthLayout = () => {
     const { user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
 
-    if (Object.keys(user).length > 0) navigate(routes.home);
+    if (Object.keys(user).length > 0) return <Navigate to={routes.home} />;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 
     return (
         <Container fluid className="auth-layout">

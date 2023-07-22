@@ -19,7 +19,7 @@ const CustomForm = (props) => {
     } = props;
 
     let properties = {
-        ...formik.getFieldProps(name),
+        ...formik.getFieldProps(name),// bu yapiyi formik üzerinden göndermez isek okuyamiyor
         ...utils.functions.validCheck(name, formik),
         disabled,
     };
@@ -27,15 +27,15 @@ const CustomForm = (props) => {
     if (["text", "date", "month", "time", "number", "email"].includes(type)) {
         properties = {
             ...properties,
-            as: asInput === "ReactInputMask" ? ReactInputMask : asInput,
-            mask: mask,
+            as: asInput === "ReactInputMask" ? ReactInputMask : asInput,//bunu direkt props'dan gönderemedigim icin bunu yaziyorum
+            mask: mask,//istedigimiz formatta gösteriyor
             placeholder: placeholder,
             type: type,
         };
     } else if (type === "textarea") {
         properties = {
             ...properties,
-            as: type,
+            as: type, //type textarea ise  as:type olmak zorunda 
             rows: rows,
         };
     }
@@ -48,7 +48,7 @@ const CustomForm = (props) => {
         case "number":
         case "email":
         case "textarea":
-            return floating ? (
+            return floating ? (//floating var mi yok mu kontrol yapiyoruz 
                 <FloatingLabel label={label} className="mb-3">
                     <Form.Control {...properties} />
                     <Form.Control.Feedback type="invalid">
@@ -69,7 +69,7 @@ const CustomForm = (props) => {
                 <Form.Group as={asGroup} className="mb-3">
                     <Form.Label>{label}</Form.Label>
                     <Form.Select {...properties}>
-                        {itemsArr.map((item) => (
+                        {itemsArr.map((item) => (// istedigim secenekleri alt alta cikarmak iicn yapi 
                             <option key={item.id} value={item.value}>
                                 {item.name}
                             </option>

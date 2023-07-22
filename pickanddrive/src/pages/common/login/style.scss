@@ -1,0 +1,23 @@
+// @use "../../../styles/variables" as v;
+// @use "../../../styles/mixins" as m;
+
+.login-form {
+    width: 80%;
+
+    input {
+        height: 50px;
+    }
+
+    button.btn {
+        width: 100%;
+        text-transform: uppercase;
+        height: 40px;
+    }
+
+    p {
+        margin: 10px 0;
+        text-align: center;
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+}
