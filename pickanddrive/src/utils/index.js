@@ -2,13 +2,13 @@
 import { validCheck, swalQuestion, swalToast } from "./functions/functions";
 
 // INITIAL VALUES
-import { loginFormInitialValues, registerFormInitialValues } from "./initial-values/initial-values";
+import { loginFormInitialValues, registerFormInitialValues, adminNewVehicleFormInitialValues, bookingFormInitialValues, contactFormInitialValues, userPasswordFormInitialValues } from "./initial-values/initial-values";
 
 // TABLES
 
 
 // VALIDATIONS
-import { loginFormValidationSchema, registerFormValidationSchema } from "./validations/validations";
+import { loginFormValidationSchema, registerFormValidationSchema, adminReservationDetailsFormValidationSchema, adminUserDetailsFormValidationSchema, adminVehicleFormValidationSchema, bookingFormValidationSchema, contactFormValidationSchema, userPasswordFormValidationSchema, userProfileFormValidationSchema, } from "./validations/validations";
 
 export const utils = {
     functions: {
@@ -18,11 +18,22 @@ export const utils = {
     },
     initialValues: {
         loginFormInitialValues,
-        registerFormInitialValues
+        registerFormInitialValues,
+        adminNewVehicleFormInitialValues,
+        bookingFormInitialValues,
+        contactFormInitialValues,
+        userPasswordFormInitialValues
     },
     tables: {},
     validations: {
         loginFormValidationSchema,
-        registerFormValidationSchema
+        registerFormValidationSchema,
+        adminReservationDetailsFormValidationSchema,
+        adminUserDetailsFormValidationSchema,
+        adminVehicleFormValidationSchema,
+        bookingFormValidationSchema,
+        contactFormValidationSchema,
+        userPasswordFormValidationSchema,
+        userProfileFormValidationSchema,
     },
 };

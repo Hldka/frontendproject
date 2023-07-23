@@ -5,14 +5,14 @@ import { utils } from "../../../utils";
 
 const PasswordInput = (props) => {
     // formik, label, name, disabled, placeholder
-    const [type, setType] = useState("password");//useState yapsisi reactdan olusturuyorum 
+    const [type, setType] = useState("password");
 
     const togglePassword = () => {
-        const newType = type === "password" ? "text": "password"  ;
+        const newType = type === "password" ? "text" : "password";
         setType(newType);
     };
 
-    const properties = {// bir obje olusturuyrum lazim oldugunda kullanmak icin
+    const properties = {
         type,
         disabled: props.disabled,
         placeholder: props.placeholder,

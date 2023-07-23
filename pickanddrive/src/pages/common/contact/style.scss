@@ -1,0 +1,14 @@
+// @use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.contact-info-container {
+    p {
+        text-align: justify;
+        margin-top: 2rem;
+    }
+
+    .contact-info {
+        @include m.flexbox(column, space-between, flex-start, 1rem);
+        margin-bottom: 2rem;
+    }
+}
