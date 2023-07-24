@@ -46,7 +46,7 @@ const Footer = () => {
     return (
         <footer>
             <Container>
-                <Row className="text-primary">
+                <Row className="text-primary g-5">
                     <Col lg={6} xl={3}>
                         <Link to={home}>
                             <div className="logo">

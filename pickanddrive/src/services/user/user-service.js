@@ -1,5 +1,4 @@
 import axios from "axios";
-import { services } from "..";
 const API_URL = import.meta.env.VITE_APP_API_URL;
 
 // COMMON ENDPOINTS
@@ -13,10 +12,7 @@ export const register = async (payload) => {
 };
 
 // USER ENDPOINTS
-export const getUser = async () => {
-    const response = await axios.get(`${API_URL}/user`, services.authHeader());
-    return response.data;
-};
+export const getUser = () => { };
 export const updatePassword = () => { };
 export const updateUser = () => { };
 

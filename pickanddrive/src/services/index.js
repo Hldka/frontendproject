@@ -7,7 +7,6 @@ import { deleteUser, downloadUserReports, getUser, getUserAdmin, getUsersByPage,
 import { addVehicle, deleteVehicle, deleteVehicleImage, downloadVehicleReports, getVehicleById, getVehicles, getVehiclesByPage, updateVehicle, uploadVehicleImage } from "./vehicle/vehicle-service";
 
 import { encryptedLocalStorage } from "./encrypt-storage/encrypt-storage";
-import { authHeader } from "./auth-header/auth-header";
 
 export const services = {
     contact: {
@@ -59,6 +58,5 @@ export const services = {
         updateVehicle,
         uploadVehicleImage,
     },
-    encryptedLocalStorage,
-    authHeader
+    encryptedLocalStorage
 }

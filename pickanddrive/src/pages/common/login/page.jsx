@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Form, Spinner } from "react-bootstrap";
+import { Button, Col, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginFailure, loginSuccess } from "../../../store";
@@ -7,10 +7,6 @@ import { useFormik } from "formik";
 import { services } from "../../../services/";
 import { utils } from "../../../utils";
 import { CustomForm, PasswordInput } from "../../../components";
-import { constants } from "../../../constants";
-import "./style.scss";
-
-const { routes } = constants;
 
 const LoginPage = () => {
     const [loading, setLoading] = useState(false);
@@ -22,20 +18,16 @@ const LoginPage = () => {
         try {
             // istegini endpointe gonder
             const data = await services.user.login(values);
-            // token'i sifrelenmis localstorage'e kaydet
-            services.encryptedLocalStorage.setItem(
-                "pickanddrivetoken",
-                data.token
-            );
+
+            services.encryptedLocalStorage.setItem("token", data.token);
+            // const responseUser = await services.user.getUser();
             // token ile kullanici bilgilerini al
-            const responseUser = await services.user.getUser();
             // kullanici bilgilerini merkezi state'e kaydet
-            dispatch(loginSuccess(responseUser));
+            dispatch(loginSuccess());
             utils.functions.swalToast(
                 "You have successfully logged in",
                 "success"
             );
-            navigate(routes.home);
         } catch (error) {
             dispatch(loginFailure());
             utils.functions.swalToast(error.response.data.message, "error");
@@ -51,7 +43,7 @@ const LoginPage = () => {
     });
 
     return (
-        <Form noValidate onSubmit={formik.handleSubmit} className="login-form">
+        <Form onSubmit={formik.handleSubmit}>
             <CustomForm
                 formik={formik}
                 name="email"
@@ -65,17 +57,10 @@ const LoginPage = () => {
                 label="Password"
                 placeholder="Enter your password..."
             />
-            <Button
-                type="submit"
-                disabled={!(formik.dirty && formik.isValid) || loading}>
-                {loading && <Spinner animation="border" size="sm" />} LOGIN
-            </Button>
+
+            <Button>LOGIN</Button>
             <p>OR</p>
-            <Button
-                onClick={() => navigate(routes.register)}
-                disabled={loading}>
-                REGISTER
-            </Button>
+            <Button>REGISTER</Button>
         </Form>
     );
 };

@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./user-menu.scss";
 import { Button, Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { constants } from "../../../../constants";
-import { utils } from "../../../../utils";
-import { logout } from "../../../../store";
 
 const {
     routes: { login, register, userProfile, userReservations, adminDashboard },
@@ -13,18 +11,9 @@ const {
 const UserMenu = () => {
     const { isLoggedIn, user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     // TODO: logou fonksiyonu yazılacak
-    const handleLogout = () => {
-        utils.functions
-            .swalQuestion("Logout", "Are you sure you want to logout?")
-            .then((response) => {
-                if (response.isConfirmed) {
-                    dispatch(logout());
-                }
-            });
-    };
+    const handleLogout = () => {};
 
     return (
         <div className="user-menu">

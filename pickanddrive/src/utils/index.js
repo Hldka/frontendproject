@@ -2,13 +2,13 @@
 import { validCheck, swalQuestion, swalToast } from "./functions/functions";
 
 // INITIAL VALUES
-import { loginFormInitialValues, registerFormInitialValues, adminNewVehicleFormInitialValues, bookingFormInitialValues, contactFormInitialValues, userPasswordFormInitialValues } from "./initial-values/initial-values";
+import { loginFormInitialValues } from "./initial-values/initial-values";
 
 // TABLES
 
 
 // VALIDATIONS
-import { loginFormValidationSchema, registerFormValidationSchema, adminReservationDetailsFormValidationSchema, adminUserDetailsFormValidationSchema, adminVehicleFormValidationSchema, bookingFormValidationSchema, contactFormValidationSchema, userPasswordFormValidationSchema, userProfileFormValidationSchema, } from "./validations/validations";
+import { loginFormValidationSchema } from "./validations/validations";
 
 export const utils = {
     functions: {
@@ -17,23 +17,10 @@ export const utils = {
         swalToast
     },
     initialValues: {
-        loginFormInitialValues,
-        registerFormInitialValues,
-        adminNewVehicleFormInitialValues,
-        bookingFormInitialValues,
-        contactFormInitialValues,
-        userPasswordFormInitialValues
+        loginFormInitialValues
     },
     tables: {},
     validations: {
-        loginFormValidationSchema,
-        registerFormValidationSchema,
-        adminReservationDetailsFormValidationSchema,
-        adminUserDetailsFormValidationSchema,
-        adminVehicleFormValidationSchema,
-        bookingFormValidationSchema,
-        contactFormValidationSchema,
-        userPasswordFormValidationSchema,
-        userProfileFormValidationSchema,
+        loginFormValidationSchema
     },
 };
