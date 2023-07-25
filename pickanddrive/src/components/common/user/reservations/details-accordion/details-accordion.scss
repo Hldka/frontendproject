@@ -1,0 +1,13 @@
+// @use "../../../../../styles/variables" as v;
+// @use "../../../../../styles/mixins" as m;
+
+.details-accordion {
+    tr {
+        td {
+            &:first-child {
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+        }
+    }
+}

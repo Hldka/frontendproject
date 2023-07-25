@@ -16,6 +16,7 @@ const CustomForm = (props) => {
         placeholder,
         rows,
         type = "text",
+        min
     } = props;
 
     let properties = {
@@ -31,6 +32,7 @@ const CustomForm = (props) => {
             mask: mask,
             placeholder: placeholder,
             type: type,
+            min: min
         };
     } else if (type === "textarea") {
         properties = {

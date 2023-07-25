@@ -1,0 +1,35 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+$breakpoint: 992px;
+$breakpointsm: 500px;
+
+.admin-layout {
+    @include m.flexbox();
+
+    @media (max-width: $breakpoint) {
+        flex-direction: column;
+    }
+
+    .admin-layout__sidebar {
+        flex: 0 0 330px;
+
+        @media (max-width: $breakpoint) {
+            width: 100%;
+            flex: 0 0 120px;
+        }
+    }
+
+    .admin-layout__content {
+        padding: 3rem;
+        flex: 1;
+
+        @media (max-width: $breakpoint) {
+            width: 100%;
+        }
+
+        @media (max-width: $breakpointsm) {
+            padding: 3rem 1rem;
+        }
+    }
+}

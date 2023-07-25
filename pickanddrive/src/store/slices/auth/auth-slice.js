@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { services } from "../../../services";
 
 const authSlice = createSlice({
     name: 'auth',
@@ -14,10 +15,12 @@ const authSlice = createSlice({
         loginFailure: (state) => {
             state.isLoggedIn = false;
             state.user = {};
+            services.encryptedLocalStorage.removeItem("pickanddrivetoken")
         },
         logout: (state) => {
             state.isLoggedIn = false;
             state.user = {};
+            services.encryptedLocalStorage.removeItem("pickanddrivetoken")
         }
     }
 });

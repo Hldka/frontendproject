@@ -8,7 +8,7 @@ const UserLayout = () => {
 
     // TODO: isLoggedIn === false ise login sayfasina yonlendir
     // if there is isLoggedIn === false, redirect to login page
-    if (isLoggedIn) return <Navigate to={"/login"} />
+    if (!isLoggedIn) return <Navigate to={"/login"} />;
 
     return (
         <>

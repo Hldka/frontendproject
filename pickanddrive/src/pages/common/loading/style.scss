@@ -1,0 +1,46 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.loading-page {
+    background-color: v.$color2;
+    width: 100%;
+    height: 100%;
+    @include m.flexbox(row, center, center);
+    position: relative;
+
+    .spinner-border {
+        width: 15rem;
+        height: 15rem;
+        position: absolute;
+        background-color: v.$color4;
+    }
+
+    .logo {
+        @include m.flexbox(row, center, center);
+
+        img {
+            height: 90px;
+            width: 70px;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .logo_text {
+            text-align: center;
+            font-size: 2.5rem;
+            line-height: 2.2rem;
+            z-index: 2;
+            color: v.$color1;
+
+            span {
+                font-size: 3rem;
+            }
+
+            p {
+                line-height: 0.8rem;
+                font-size: 0.4rem;
+                margin: 0;
+            }
+        }
+    }
+}

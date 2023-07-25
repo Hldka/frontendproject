@@ -1,11 +1,26 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { constants } from "../../constants";
+import { Sidebar } from "../../components";
+import "./style.scss";
+
+const { routes } = constants;
 
 const AdminLayout = () => {
-    // TODO: kullanici admin rolune sahip mi degil mi kontrolu yap, degilse forbidden (403) - yetkisiz giris sayfasina yonlendir
+    const { user } = useSelector((state) => state.auth);
+
+    if (!user || !user?.roles?.includes("Administrator"))
+        return <Navigate to={`${routes.forbidden}`} />;
+
     return (
-        <>
-            <Outlet />
-        </>
+        <div className="admin-layout">
+            <div className="admin-layout__sidebar">
+                <Sidebar />
+            </div>
+            <div className="admin-layout__content">
+                <Outlet />
+            </div>
+        </div>
     );
 };
 

@@ -6,12 +6,11 @@ $breakpoint: 992px;
 
 footer {
     background-color: v.$color4;
-    padding: 0 1rem 5rem 1rem;
+    padding: 3rem 1rem 5rem 1rem;
     box-shadow: 0 0 10px 0 v.$color2-5;
     color: v.$color1;
 
-    position: sticky;
-    top: 80%;
+
 
     .logo {
         @include m.flexbox(row, center, center);
