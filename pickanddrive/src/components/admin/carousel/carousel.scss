@@ -1,0 +1,49 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+$breakpoint: 700px;
+
+.admin-carousel {
+    margin-top: 5rem;
+    border: 1px solid v.$color1-5;
+    border-radius: 5px;
+
+    h2 {
+        text-align: center;
+        background-color: v.$color1;
+        color: v.$color4;
+        padding: 1rem 0;
+        margin: 0 20px;
+    }
+
+    img {
+        margin: auto;
+    }
+
+    .carousel-item {
+        > div {
+            min-height: 333px;
+            @include m.flexbox(row, center, center);
+        }
+    }
+
+    .carousel-indicators {
+        button {
+            background-color: v.$color2;
+        }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        background-color: v.$color1;
+        color: v.$color2;
+        opacity: 1;
+        width: 20px;
+    }
+
+    @media (max-width: $breakpoint) {
+        img {
+            width: 100%;
+        }
+    }
+}

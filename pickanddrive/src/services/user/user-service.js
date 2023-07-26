@@ -28,7 +28,19 @@ export const updateUser = async (userInfo) => {
 
 // ADMIN ENDPOINTS
 export const deleteUser = () => { };
-export const downloadUserReports = () => { };
+
+export const downloadUserReports = async () => {
+    // TODO: Implement this
+    const response = await axios.get(`${API_URL}/excel/download/users`,
+    );
+
+};
+
 export const getUserAdmin = () => { };
-export const getUsersByPage = () => { };
+
+export const getUsersByPage = async (page = 0, size = 20, sort = "id", direction = "DESC") => {
+    const response = await axios.get(`${API_URL}/user/auth/pages?page=${page}&size=${size}&sort=${sort}&direction=${direction}`, services.authHeader());
+    return response.data;
+};
+
 export const updateUserAdmin = () => { };

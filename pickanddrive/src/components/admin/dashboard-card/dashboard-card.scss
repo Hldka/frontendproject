@@ -1,0 +1,52 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.dashboard-card {
+    min-width: 300px;
+    box-shadow: 0 0 5px v.$color1;
+    border-radius: 5px;
+    cursor: pointer;
+    font-style: italic;
+    @include m.flexbox(row, flex-start, stretch);
+
+    .icon {
+        flex: 1;
+        background-color: v.$color4;
+        border-radius: 5px 0 0 5px;
+        border: 1px solid v.$color1-5;
+        @include m.flexbox(row, center, center);
+
+        svg {
+            font-size: 3rem;
+        }
+    }
+
+    .content {
+        flex: 4;
+        text-align: center;
+
+        .title {
+            text-transform: uppercase;
+            color: v.$color4;
+            background-color: v.$color1;
+            padding: 0.5rem 0;
+
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        .item {
+            padding: 0.5rem 0;
+
+            p {
+                margin: 0;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    @media (max-width: 339px) {
+        min-width: 0px;
+    }
+}

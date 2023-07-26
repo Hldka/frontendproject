@@ -40,7 +40,7 @@ const formInputs = [
 const UserProfileForm = () => {
     const [loading, setLoading] = useState(false);
 
-    const { user } = useSelector((state) => state.auth);//user bilgilerime buradan ulastim
+    const { user } = useSelector((state) => state.auth);
     console.log(user);
 
     const initialValues = {

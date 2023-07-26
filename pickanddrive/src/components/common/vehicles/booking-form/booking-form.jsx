@@ -130,13 +130,13 @@ const BookingForm = () => {
         try {
             await services.reservation.createReservation(vehicle.id, dto);
             utils.functions.swalToast(
-                "Reservation created successfully!",// aracinizi basarili bir sekilde kiraladiniz 
+                "Reservation created successfully!",
                 "success"
             );
             navigate(routes.userReservations);
         } catch (error) {
             utils.functions.swalToast(
-                "There is an error occurred during rent operation!",//kiralam isleminde bir hata belirdi 
+                "There is an error occurred during rent operation!",
                 "error"
             );
         } finally {
@@ -144,7 +144,7 @@ const BookingForm = () => {
         }
     };
 
-    const handleAvailability = async () => {//kullanici girisi yapmadigim icin 
+    const handleAvailability = async () => {
         if (!isLoggedIn || !formik.dirty) return;
         // TODO: Formik dirty kontrolu yapilacak
 
@@ -174,7 +174,7 @@ const BookingForm = () => {
             // TODO: Gecmise yonelik bir tarih secilmemeli
             const data = await services.reservation.isVehicleAvailable(dto);
             console.log(data);
-            const { available, totalPrice } = data;//bu kisim baken tarafinda yapilacak 
+            const { available, totalPrice } = data;
             setTotalPrice(totalPrice);
             setVehicleAvailable(available);
             if (!available) {
@@ -244,8 +244,9 @@ const BookingForm = () => {
                 </fieldset>
                 {/*  check both vehicle available and user logged in, otherwise make payment section invisible - kullanicinin giris yaptigini ve aracin uygun oldugunu kontrol et, aksi halde odeme kismi gorunmez olsun */}
                 <fieldset
-               className={`mt-5 ${ (vehicleAvailable && isLoggedIn) || "d-none" }`}
-               >
+                    className={`mt-5 ${
+                        (vehicleAvailable && isLoggedIn) || "d-none"
+                    }`}>
                     <Alert variant="success">
                         <h2>Total Price: ${totalPrice}</h2>
                         {formItems.slice(6, 10).map((item) => (
