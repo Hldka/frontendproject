@@ -5,7 +5,7 @@ import { validCheck, swalQuestion, swalToast, checkDates, checkExpireDate, combi
 import { loginFormInitialValues, registerFormInitialValues, adminNewVehicleFormInitialValues, bookingFormInitialValues, contactFormInitialValues, userPasswordFormInitialValues } from "./initial-values/initial-values";
 
 // TABLES
-import { adminUserColumns } from "./tables/tables";
+import { adminUserColumns, adminReservationsColumns } from "./tables/tables";
 
 // VALIDATIONS
 import { loginFormValidationSchema, registerFormValidationSchema, adminReservationDetailsFormValidationSchema, adminUserDetailsFormValidationSchema, adminVehicleFormValidationSchema, bookingFormValidationSchema, contactFormValidationSchema, userPasswordFormValidationSchema, userProfileFormValidationSchema, } from "./validations/validations";
@@ -33,6 +33,7 @@ export const utils = {
     },
     tables: {
         adminUserColumns,
+        adminReservationsColumns
     },
     validations: {
         loginFormValidationSchema,

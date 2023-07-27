@@ -16,3 +16,22 @@ export const adminUserColumns = [
         selector: (row) => row?.roles?.join("—"),
     },
 ];
+
+export const adminReservationsColumns = [
+    {
+        name: "Vehicle",
+        selector: (row) => row?.car?.model,
+    },
+    {
+        name: "Pickup",
+        selector: (row) => row?.pickUpLocation,
+    },
+    {
+        name: "Dropoff",
+        selector: (row) => row?.dropOffLocation,
+    },
+    {
+        name: "Price",
+        selector: (row) => `$ ${row?.totalPrice}`,
+    },
+];

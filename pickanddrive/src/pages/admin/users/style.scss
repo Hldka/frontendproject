@@ -1,0 +1,50 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.admin-users-page {
+    @include m.flexbox(column, flex-start, center, 3rem);
+
+    button.btn {
+        @include m.button(v.$color1, v.$color4, v.$color2, v.$color4);
+        align-self: flex-end;
+    }
+
+    .admin-users-table-container {
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 0 10px v.$color1;
+
+        [role="row"] {
+            cursor: pointer;
+        }
+
+        > div {
+            &:nth-child(1) {
+                border-radius: 5px 5px 0 0;
+                background-color: v.$color1;
+                color: v.$color4;
+                text-transform: uppercase;
+            }
+
+            &:nth-child(2) {
+                [role="table"] {
+                    [role="rowgroup"] {
+                        &:nth-child(1) {
+                            [role="row"] {
+                                font-size: 0.9rem;
+                                border-bottom: 1px solid v.$color1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                nav {
+                    border-top: 1px solid v.$color1;
+                    border-radius: 0 0 5px 5px;
+                }
+            }
+        }
+    }
+}
