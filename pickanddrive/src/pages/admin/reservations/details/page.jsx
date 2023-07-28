@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { constants } from "../../../../constants";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { utils } from "../../../../utils";
 import { services } from "../../../../services";
+import { CustomForm, Loading, SectionHeader } from "../../../../components";
+import { Button, ButtonGroup, Col, Form, Row, Spinner } from "react-bootstrap";
 import "./style.scss";
 
 const { routes } = constants;
@@ -11,7 +13,7 @@ const { routes } = constants;
 const AdminReservationDetailsPage = () => {
     const [loading, setLoading] = useState(true);
     const [deleting, setDeleting] = useState(false);
-    const [saving, setSaving] = useState(false);
+    const [updating, setUpdating] = useState(false);
     const [vehicles, setVehicles] = useState([]);
     const { reservationId } = useParams();
     const navigate = useNavigate();
@@ -77,7 +79,44 @@ const AdminReservationDetailsPage = () => {
         userId: "",
     });
 
-    const onSubmit = async (values) => {};
+    const onSubmit = async (values) => {
+        setUpdating(true);
+
+        const dto = {
+            pickUpTime: utils.functions.combineDateAndTime(
+                values.pickUpDate,
+                values.pickUpTime
+            ),
+            dropOffTime: utils.functions.combineDateAndTime(
+                values.dropOffDate,
+                values.dropOffTime
+            ),
+            pickUpLocation: values.pickUpLocation,
+            dropOffLocation: values.dropOffLocation,
+            status: values.status,
+        };
+
+        try {
+            await services.reservation.updateReservation(
+                values.carId,
+                reservationId,
+                dto
+            );
+
+            utils.functions.swalToast(
+                "Reservation updated successfully.",
+                "success"
+            );
+        } catch (error) {
+            console.log(error);
+            utils.functions.swalToast(
+                "There was an error updating the data.",
+                "error"
+            );
+        } finally {
+            setUpdating(false);
+        }
+    };
 
     const formik = useFormik({
         initialValues,
@@ -126,7 +165,6 @@ const AdminReservationDetailsPage = () => {
                     reservationId
                 );
             const vehiclesData = await services.vehicle.getVehicles();
-
             const dto = {
                 ...reservationsData,
                 pickUpDate: utils.functions.getDate(
@@ -157,7 +195,66 @@ const AdminReservationDetailsPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <div>AdminReservationDetailsPage</div>;
+    return loading ? (
+        <Loading />
+    ) : (
+        <>
+            <SectionHeader title1="reservation" title2="details" />
+            <Form
+                noValidate
+                onSubmit={formik.handleSubmit}
+                className="admin-reservation-details-page">
+                <div className="forms-container">
+                    <Row>
+                        <h2>reservation id: {reservationId}</h2>
+                    </Row>
+                    <Row>
+                        {formItems.map((item) => (
+                            <Col key={item.name} md={6} lg={4}>
+                                <CustomForm formik={formik} {...item} />
+                            </Col>
+                        ))}
+                    </Row>
+                </div>
+                <div className="buttons-container">
+                    <div className="go-to-customer">
+                        <Button
+                            as={Link}
+                            to={`${routes.adminUsers}/${formik.values.userId}`}>
+                            Go To Customer
+                        </Button>
+                    </div>
+                    <ButtonGroup>
+                        <Button
+                            onClick={() =>
+                                navigate(`${routes.adminReservations}`)
+                            }>
+                            cancel
+                        </Button>
+                        <Button
+                            type="submit"
+                            disabled={
+                                !(formik.dirty && formik.isValid) || updating
+                            }>
+                            {updating && (
+                                <Spinner animation="border" size="sm" />
+                            )}{" "}
+                            save
+                        </Button>
+                        <Button
+                            disabled={deleting || updating}
+                            onClick={handleDelete}
+                            variant="danger">
+                            {deleting && (
+                                <Spinner animation="border" size="sm" />
+                            )}{" "}
+                            delete
+                        </Button>
+                    </ButtonGroup>
+                </div>
+            </Form>
+        </>
+    );
 };
 
 export default AdminReservationDetailsPage;

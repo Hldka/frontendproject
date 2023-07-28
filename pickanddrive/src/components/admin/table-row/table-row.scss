@@ -1,0 +1,34 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+$breakpointsm: 576px;
+
+.table-row__content {
+    @include m.flexbox($gap: 1rem);
+
+    @media (max-width: $breakpointsm) {
+        flex-direction: column;
+    }
+
+    td {
+        padding: 1.5rem 0;
+        font-size: 1.1rem;
+        overflow-wrap: anywhere;
+
+        &:nth-child(1) {
+            flex: 2;
+            font-weight: 600;
+            text-transform: uppercase;
+            @include m.flexbox($justify-content: space-between);
+        }
+
+        &:nth-child(2) {
+            flex: 9;
+        }
+
+        @media (max-width: $breakpointsm) {
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+        }
+    }
+}

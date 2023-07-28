@@ -1,0 +1,27 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+.admin-contact-message-details-page {
+    .content {
+        table {
+            width: 100%;
+
+            tr {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .buttons-container {
+        margin-top: 2rem;
+        text-align: end;
+
+        button.btn {
+            text-transform: uppercase;
+
+            &:nth-child(1) {
+                @include m.button(v.$color1, v.$color4, v.$color2, v.$color4);
+            }
+        }
+    }
+}

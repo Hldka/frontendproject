@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { services } from "../../../services";
 import { constants } from "../../../constants";
@@ -73,7 +73,6 @@ const AdminReservationsPage = () => {
 
     const handlePerPageRowsChange = async (newPerPage, page) => {
         // data table componentinin indexi 1'den basladigi icin parametreden gelen page sayisindan 1 azaltiyoruz.
-        console.log(newPerPage, page);
         try {
             const data = await services.reservation.getReservationsByPage(
                 page - 1,
@@ -97,11 +96,6 @@ const AdminReservationsPage = () => {
     const handleRowClicked = (row) => {
         navigate(`${routes.adminReservations}/${row.id}`);
     };
-
-    useEffect(() => {
-        loadData(0);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div className="admin-reservations-page">

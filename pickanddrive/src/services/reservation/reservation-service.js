@@ -51,4 +51,8 @@ export const getReservationByIdAdmin = async (id) => {
 };
 
 export const getReservationsByPageAdmin = () => { };
-export const updateReservation = () => { };
+
+export const updateReservation = async (carId, reservationId, payload) => {
+    const response = await axios.put(`${API_URL}/reservations/admin/auth?carId=${carId}&reservationId=${reservationId}`, payload, services.authHeader());
+    return response.data;
+};

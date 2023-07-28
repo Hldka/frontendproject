@@ -1,0 +1,78 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+$breakpointsm: 550px;
+$breakpointxs: 400px;
+
+.admin-reservation-details-page {
+    padding: 0 1rem;
+    margin-top: 2rem;
+
+    .forms-container {
+        border: 1px solid v.$color1-5;
+        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+
+        h2 {
+            text-transform: uppercase;
+            color: v.$color1;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .buttons-container {
+        @include m.flexbox(row, space-between, center);
+        flex-wrap: wrap;
+
+        .go-to-customer {
+            a[role="button"] {
+                @include m.button(v.$color4, v.$color1, v.$color1-2, v.$color4);
+
+                text-transform: uppercase;
+                border: 1px solid v.$color1;
+            }
+        }
+
+        .btn-group {
+            button.btn {
+                text-transform: uppercase;
+                &:nth-child(1) {
+                    @include m.button(
+                        v.$color1,
+                        v.$color4,
+                        v.$color1-2,
+                        v.$color4
+                    );
+                }
+
+                &:nth-child(even) {
+                    @include m.button(
+                        v.$color4,
+                        v.$color1,
+                        v.$color1-2,
+                        v.$color4
+                    );
+                    border: 1px solid v.$color1;
+                }
+            }
+
+            @media (max-width: $breakpointxs) {
+                @include m.flexbox(column, center, center, 5px);
+
+                * {
+                    border-radius: 5px !important;
+                }
+            }
+        }
+
+        @media (max-width: $breakpointsm) {
+            @include m.flexbox(column, center, center, 1rem);
+
+            * {
+                width: 100%;
+            }
+        }
+    }
+}
