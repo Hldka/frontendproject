@@ -61,7 +61,6 @@ const AdminReservationsPage = () => {
                 "success"
             );
         } catch (error) {
-            console.log(error);
             utils.functions.swalToast(
                 "There was an error while downloading",
                 "error"
@@ -80,6 +79,7 @@ const AdminReservationsPage = () => {
             );
             setReservations(data.content);
             setPerPage(newPerPage);
+            setTotalRows(data.totalElements);
         } catch (error) {
             utils.functions.swalToast(
                 "There was an error while changing the page",

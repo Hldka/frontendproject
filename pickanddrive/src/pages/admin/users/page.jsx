@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { constants } from "../../../constants";
 import { Button, Spinner } from "react-bootstrap";
 import DataTable from "react-data-table-component";
@@ -57,7 +57,6 @@ const AdminUsersPage = () => {
                 "success"
             );
         } catch (error) {
-            console.log(error);
             utils.functions.swalToast(
                 "There was an error while downloading",
                 "error"
@@ -75,6 +74,7 @@ const AdminUsersPage = () => {
             );
             setUserData(data.content);
             setPerPage(newPerPage);
+            setTotalRows(data.totalElements);
         } catch (error) {
             utils.functions.swalToast(
                 "There was an error while changing the page",
@@ -91,11 +91,6 @@ const AdminUsersPage = () => {
     const handleRowClicked = (row) => {
         navigate(`${routes.adminUsers}/${row.id}`);
     };
-
-    useEffect(() => {
-        loadData(0);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div className="admin-users-page">

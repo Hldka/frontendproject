@@ -196,7 +196,7 @@ const AdminReservationDetailsPage = () => {
     }, []);
 
     return loading ? (
-        <Loading />
+        <Loading height={500} />
     ) : (
         <>
             <SectionHeader title1="reservation" title2="details" />

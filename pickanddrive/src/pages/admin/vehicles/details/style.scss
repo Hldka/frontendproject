@@ -1,0 +1,75 @@
+@use "../../../../styles/variables" as v;
+@use "../../../../styles/mixins" as m;
+
+$breakpointxl: 1200px;
+
+.admin-vehicle-details-form {
+    box-shadow: 0 0 5px v.$color1;
+    border-radius: 5px;
+    padding: 2rem;
+
+    .image-area {
+        background-color: v.$color4;
+        box-shadow: 0 0 5px v.$color1;
+        border-radius: 5px;
+        position: relative;
+        z-index: 1;
+        min-height: 200px;
+        @include m.flexbox(row, center, center);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .cover {
+            @include m.flexbox(row, center, center);
+            position: absolute;
+            inset: 0;
+            background-color: rgba(134, 134, 134, 0.5);
+            opacity: 0;
+            z-index: 100;
+            transition: all 0.3s ease-in-out;
+
+            label.form-label {
+                @include m.button(v.$color1, v.$color4, v.$color2, v.$color4);
+                border: 1px solid v.$color1;
+            }
+        }
+
+        &:hover {
+            .cover {
+                opacity: 1;
+            }
+        }
+
+        .image-error {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        @media (max-width: $breakpointxl) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    button.btn {
+        text-transform: uppercase;
+
+        &:nth-child(1) {
+            @include m.button(v.$color4, v.$color1, v.$color1, v.$color4);
+            border: 1px solid v.$color1;
+        }
+
+        &:nth-child(2) {
+            @include m.button(v.$color5, v.$color4, v.$color4, v.$color1);
+            &:hover {
+                border: 1px solid v.$color5;
+            }
+        }
+    }
+}

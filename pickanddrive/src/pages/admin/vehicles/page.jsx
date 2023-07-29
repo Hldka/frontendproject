@@ -68,6 +68,7 @@ const AdminVehiclesPage = () => {
             );
             setVehicles(data.content);
             setPerPage(newPerPage);
+            setTotalRows(data.totalElements);
         } catch (error) {
             utils.functions.swalToast(
                 "There was an error while changing the page",
@@ -112,6 +113,7 @@ const AdminVehiclesPage = () => {
                     pagination
                     paginationServer
                     highlightOnHover
+                    responsive
                 />
             </div>
         </div>

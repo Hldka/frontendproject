@@ -33,7 +33,6 @@ const AdminContactMessagesPage = () => {
 
     const handlePerPageRowsChange = async (newPerPage, page) => {
         // data table componentinin indexi 1'den basladigi icin parametreden gelen page sayisindan 1 azaltiyoruz.
-        console.log(newPerPage, page);
         try {
             const data = await services.contact.getMessagesByPage(
                 page - 1,
@@ -41,6 +40,7 @@ const AdminContactMessagesPage = () => {
             );
             setMessages(data.content);
             setPerPage(newPerPage);
+            setTotalRows(data.totalElements);
         } catch (error) {
             utils.functions.swalToast(
                 "There was an error while changing the page",
