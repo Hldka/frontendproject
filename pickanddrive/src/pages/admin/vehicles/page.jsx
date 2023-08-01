@@ -8,7 +8,7 @@ import DataTable from "react-data-table-component";
 import { Loading } from "../../../components";
 import "./style.scss";
 
-const { routes } = constants;
+const { routes } = constants;// navigation icin yol 
 
 const AdminVehiclesPage = () => {
     const [loading, setLoading] = useState(true);
@@ -33,7 +33,7 @@ const AdminVehiclesPage = () => {
         }
     };
 
-    const handleDownload = async () => {
+    const handleDownload = async () => {//indirme islemi icin 
         setDownloading(true);
         try {
             const download = await services.vehicle.downloadVehicleReports();

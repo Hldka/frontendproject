@@ -4,7 +4,7 @@
 .admin-vehicles-page {
     @include m.flexbox(column, flex-start, center, 3rem);
 
-    a[role="button"] {
+    a[role="button"] {//a href role side button olana git
         background-color: v.$color2;
         border: 1px solid v.$color2;
 

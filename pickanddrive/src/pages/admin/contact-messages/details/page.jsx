@@ -7,9 +7,9 @@ import { utils } from "../../../../utils";
 import { services } from "../../../../services";
 import "./style.scss";
 
-const { routes } = constants;
+const { routes } = constants;//route 'ya olustrumak icin
 
-const tableItems = [
+const tableItems = [// bir döngü olustumak icin , msjlari görebilmek icin 
     {
         title: "Name",
         content: "name",
@@ -29,7 +29,7 @@ const tableItems = [
 ];
 
 const AdminContactMessageDetailsPage = () => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);//bilgi gelene kadar spinner gösterecegiz 
     const [message, setMessage] = useState({});
     const [deleting, setDeleting] = useState(false);
 
@@ -41,7 +41,7 @@ const AdminContactMessageDetailsPage = () => {
             const messageData = await services.contact.getMessage(
                 contactMessageId
             );
-            console.log(messageData);
+           console.log(messageData);
             setMessage(messageData);
         } catch (error) {
             console.log(error);

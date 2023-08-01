@@ -117,7 +117,7 @@ const AdminVehicleDetailsPage = () => {
                 // mevcut image database'den silinecek
 
                 if (values.image.length > 1) {
-                    values.image.forEach(async (image) => {
+                    values.image.forEach(async (image) => {// birden fazla varsa hepsine yapacagiz 
                         await services.vehicle.deleteVehicleImage(image);
                     });
                 } else {
@@ -138,7 +138,7 @@ const AdminVehicleDetailsPage = () => {
             }
 
             const payload = { ...values };
-            delete payload.image;
+            delete payload.image;// id disindaki bilgileri siliyorum
 
             await services.vehicle.updateVehicle(vehicleId, imageId, payload);
             utils.functions.swalToast(
@@ -195,7 +195,7 @@ const AdminVehicleDetailsPage = () => {
     const removeVehicle = async () => {
         setDeleting(true);
         try {
-            await services.vehicle.deleteVehicle(vehicleId);
+            await services.vehicle.deleteVehicle(vehicleId);// remove fonksiyonu 
             utils.functions.swalToast(
                 "Vehicle deleted successfully.",
                 "success"
